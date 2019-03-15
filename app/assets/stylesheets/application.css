@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+.tweet-image {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  float: left;
+}
+.tweet-image img {
+  border-radius: 50%;
+  border: 5px solid #fff;
+}
