@@ -30,6 +30,8 @@ class TweetController < ApplicationController
     @fav =[]
     @rt =[]
     @image =[]
+    @tl_user_id=[]
+    @tl_user_name=[]
     client.home_timeline(:count => 200).each do |tweet|
 
 
@@ -48,7 +50,8 @@ class TweetController < ApplicationController
       @rt.push(tweet.retweet_count)
 
       @image.push(tweet.user.profile_image_url_https.to_s)
-
+      @tl_user_id.push(tweet.user.name)
+      @tl_user_name.push(tweet.user.screen_name)
 
 
     end

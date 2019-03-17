@@ -2,26 +2,32 @@
 meta http-equiv='refresh' content='70'
 .body
   .main
-    = @userinfo.screen_name
+    
+      
     br
     - if logged_in?
-      .bot
-        p
-          = link_to 'ログアウト', logout_path
+      .leftNavigation
+        .bot
+         p
+            = @userinfo.screen_name
+            = link_to 'ログアウト', logout_path
       br
-      - (1..200).each do |i|
-        .box
-          .mask
-            .tweet-image
-              = image_tag"#{@image[i]}"
-            br
-            br
-            p
-              = @text[i]
-            br
-            = @fav[i]
-            = @rt[i]
-            br
+      .maintl
+        - (1..200).each do |i|
+          .box
+            .mask
+              .tweet-image
+                = image_tag"#{@image[i]}"
+              br
+              br
+              p
+                = @text[i]
+              br
+              .id
+                = @tl_user_name[i]
+              = @fav[i]
+              = @rt[i]
+              br
     - else
       = link_to 'Twitterでログイン', 'auth/twitter'
       = logger.debug("このページは読み込まれていますtop")
