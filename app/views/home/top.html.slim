@@ -1,11 +1,13 @@
-.left
+= stylesheet_link_tag "custom.css", :media => "all"
+.leftNavigation
   左カラム
-.right
+.maintl
   - if logged_in?
-    = link_to 'ログアウト', logout_path
-    = logger.debug("このページは読み込まれていますtop")
-    = logger.debug(session[:oauth_token].inspect)
-    = link_to 'タイムライン', timeline_path
+    .btn
+      = link_to 'ログアウト', logout_path
+    br
+    .btn
+      = link_to 'タイムライン', timeline_path
   - else
-    = link_to 'Twitterでログイン', 'auth/twitter'
-    = logger.debug("このページは読み込まれていますtop")
+    .btn
+      = link_to 'Twitterでログイン', 'auth/twitter'

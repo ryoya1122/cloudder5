@@ -1,5 +1,6 @@
 = stylesheet_link_tag "custom.css", :media => "all"
-meta http-equiv='refresh' content='70'
+
+  
 .body
   .main
     
@@ -8,13 +9,21 @@ meta http-equiv='refresh' content='70'
     - if logged_in?
       .leftNavigation
         .bot
-         p
+         
             = @userinfo.screen_name
-            = link_to 'ログアウト', logout_path
+            = @userinfo.name
+            .myimage
+              = image_tag"#{@userinfo.profile_image_url}"
+            .btn
+              = link_to 'ログアウト', logout_path
       br
       .maintl
         - (1..200).each do |i|
+          
+            
           .box
+            javascript:
+              $(".box").click(function(){$(this).slideUp();});
             .mask
               .tweet-image
                 = image_tag"#{@image[i]}"
@@ -24,10 +33,11 @@ meta http-equiv='refresh' content='70'
                 = @text[i]
               br
               .id
-                = @tl_user_name[i]
+                
+                = link_to @tl_user_name[i], "http://twitter.com/#{@tl_user_name[i]}"
+                
               = @fav[i]
               = @rt[i]
               br
     - else
       = link_to 'Twitterでログイン', 'auth/twitter'
-      = logger.debug("このページは読み込まれていますtop")
