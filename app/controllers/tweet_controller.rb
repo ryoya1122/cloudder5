@@ -25,6 +25,7 @@ class TweetController < ApplicationController
 
 
     end
+    @userinfo = client.user
     @text =[]
     @fav =[]
     @rt =[]
