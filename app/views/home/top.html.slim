@@ -1,8 +1,11 @@
-- if logged_in?
-  = link_to 'ログアウト', logout_path
-  = logger.debug("このページは読み込まれていますtop")
-  = logger.debug(session[:oauth_token].inspect)
-  = link_to 'タイムライン', timeline_path
-- else
-  = link_to 'Twitterでログイン', 'auth/twitter'
-  = logger.debug("このページは読み込まれていますtop")
+.left
+  左カラム
+.right
+  - if logged_in?
+    = link_to 'ログアウト', logout_path
+    = logger.debug("このページは読み込まれていますtop")
+    = logger.debug(session[:oauth_token].inspect)
+    = link_to 'タイムライン', timeline_path
+  - else
+    = link_to 'Twitterでログイン', 'auth/twitter'
+    = logger.debug("このページは読み込まれていますtop")

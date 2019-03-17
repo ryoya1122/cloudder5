@@ -6,5 +6,4 @@ class HomeController < ApplicationController
     logger.debug(@token1)
     logger.debug("このページは読み込まれていますhomecon")
   end
-  
 end
